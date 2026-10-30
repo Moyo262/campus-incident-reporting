@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>Campus incident report</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/desktop-first.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#main-content" aria-label="Redeemer's University campus incident reporting">
+        <img class="brand-logo" alt="Redeemer's University logo, with the motto ‘Running with the Vision’" src="assets/run-logo.jpg">
+        <span>Campus <strong>Care</strong></span>
+      </a>
+      <span class="secure-note"><span class="secure-dot" aria-hidden="true"></span> Secure campus reporting</span>
+    </header>
+
+    <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR CAMPUS. YOUR COMMUNITY.</p>
+      <h1 id="page-title">Report an incident</h1>
+      <p class="intro-copy">Tell us what happened. Your report helps keep our campus safe and welcoming for everyone.</p>
+      <div class="privacy-note">
+        <span class="privacy-icon" aria-hidden="true">i</span>
+        <p>You can report anonymously. If you share contact details, our campus team may follow up for more information.</p>
+      </div>
+    </section>
+
+    <section class="form-card" id="main-content" aria-labelledby="form-heading">
+      <div class="form-heading">
+        <div>
+          <p class="step-label">INCIDENT REPORT</p>
+          <h2 id="form-heading">What would you like to report?</h2>
+        </div>
+        <span class="required-note"><span aria-hidden="true">*</span> Required</span>
+      </div>
+
+      <div class="success-message" id="success-message" role="status" tabindex="-1" hidden>
+        <span class="success-icon" aria-hidden="true">✓</span>
+        <div>
+          <h2>Report received</h2>
+          <p>Thank you for speaking up. This demo does not send incident details to a server.</p>
+        </div>
+      </div>
+
+      <section class="moderator-results" id="moderator-results" aria-labelledby="moderator-heading" hidden>
+        <div class="results-heading">
+          <div>
+            <p class="step-label">USABILITY TEST</p>
+            <h2 id="moderator-heading">Moderator session results</h2>
+          </div>
+          <button class="download-button" id="download-results" type="button">Download all results as CSV</button>
+        </div>
+        <p class="results-summary" id="results-summary"></p>
+        <dl class="results-grid">
+          <div class="result-item"><dt>Start time</dt><dd id="result-start-time">—</dd></div>
+          <div class="result-item"><dt>Submit time</dt><dd id="result-submit-time">—</dd></div>
+          <div class="result-item"><dt>Completion time</dt><dd><span id="result-completion-time">—</span> seconds</dd></div>
+          <div class="result-item"><dt>Navigation error count</dt><dd id="result-navigation-errors">—</dd></div>
+          <div class="result-item"><dt>Version used</dt><dd id="result-version">—</dd></div>
+        </dl>
+        <p class="storage-note" id="storage-note" role="status"></p>
+      </section>
+
+      <form id="incident-form" aria-labelledby="form-heading" novalidate>
+        <div class="form-progress">
+          <label for="required-progress">Report completion</label>
+          <progress id="required-progress" max="5" value="0" aria-describedby="progress-text">0%</progress>
+          <span id="progress-text">0 of 5 required items complete</span>
+        </div>
+        <fieldset class="form-section" aria-describedby="type-hint type-error">
+          <legend>Incident type <span class="required-star" aria-hidden="true">*</span></legend>
+          <p class="field-hint" id="type-hint">Choose the option that best describes what happened.</p>
+          <div class="incident-options" id="incident-options">
+            <label class="choice-card"><input type="radio" name="incidentType" value="theft" required aria-describedby="type-hint type-error"><span class="choice-icon" aria-hidden="true">⌕</span><span>Theft</span></label>
+            <label class="choice-card"><input type="radio" name="incidentType" value="fire-hazard" required aria-describedby="type-hint type-error"><span class="choice-icon" aria-hidden="true">♨</span><span>Fire hazard</span></label>
+            <label class="choice-card"><input type="radio" name="incidentType" value="harassment" required aria-describedby="type-hint type-error"><span class="choice-icon" aria-hidden="true">◎</span><span>Harassment</span></label>
+            <label class="choice-card"><input type="radio" name="incidentType" value="accident" required aria-describedby="type-hint type-error"><span class="choice-icon" aria-hidden="true">＋</span><span>Accident</span></label>
+            <label class="choice-card"><input type="radio" name="incidentType" value="facility-damage" required aria-describedby="type-hint type-error"><span class="choice-icon" aria-hidden="true">⌂</span><span>Facility damage</span></label>
+            <label class="choice-card"><input type="radio" name="incidentType" value="other" required aria-describedby="type-hint type-error"><span class="choice-icon" aria-hidden="true">•••</span><span>Other</span></label>
+          </div>
+          <p class="error-message" id="type-error" hidden><span class="error-icon" aria-hidden="true">!</span><span class="error-text"></span></p>
+        </fieldset>
+
+        <fieldset class="form-section details-section">
+          <legend>When and where did it happen? <span class="required-star" aria-hidden="true">*</span></legend>
+          <div class="field-grid">
+            <div class="field">
+              <label for="incident-date">Date <span class="required-star" aria-hidden="true">*</span></label>
+              <input id="incident-date" name="incidentDate" type="date" required autocomplete="off" aria-describedby="date-error">
+              <p class="error-message" id="date-error" hidden><span class="error-icon" aria-hidden="true">!</span><span class="error-text"></span></p>
+            </div>
+            <div class="field">
+              <label for="incident-time">Approximate time <span class="required-star" aria-hidden="true">*</span></label>
+              <input id="incident-time" name="incidentTime" type="time" required autocomplete="off" aria-describedby="time-error">
+              <p class="error-message" id="time-error" hidden><span class="error-icon" aria-hidden="true">!</span><span class="error-text"></span></p>
+            </div>
+            <div class="field field-wide">
+              <label for="location">Campus location <span class="required-star" aria-hidden="true">*</span></label>
+              <select id="location" name="location" required autocomplete="off" aria-describedby="location-error">
+                <option value="">Select a campus location</option>
+                <option value="main-library">Main Library</option>
+                <option value="student-center">Student Center</option>
+                <option value="science-building">Science Building</option>
+                <option value="residence-halls">Residence Halls</option>
+                <option value="sports-complex">Sports Complex</option>
+                <option value="parking-transport">Parking &amp; Transport</option>
+                <option value="other-campus">Other campus location</option>
+              </select>
+              <p class="error-message" id="location-error" hidden><span class="error-icon" aria-hidden="true">!</span><span class="error-text"></span></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-section field">
+          <label for="description">What happened? <span class="required-star" aria-hidden="true">*</span></label>
+          <p class="field-hint" id="description-hint">Share helpful details, avoid sensitive personal information, and use 10–2,000 characters.</p>
+          <textarea id="description" name="description" rows="5" minlength="10" maxlength="2000" required placeholder="Describe the incident, who or what was involved, and any other helpful details…" aria-describedby="description-hint description-error character-count"></textarea>
+          <div class="field-footer"><p class="error-message" id="description-error" hidden><span class="error-icon" aria-hidden="true">!</span><span class="error-text"></span></p><span class="character-count" id="character-count">0 / 2000</span></div>
+        </div>
+
+        <div class="form-section field">
+          <label for="photo">Add a photo <span class="optional-label">Optional</span></label>
+          <p class="field-hint" id="photo-hint">A photo can help us assess the situation. Images only, up to 10 MB.</p>
+          <div class="upload-control">
+            <input id="photo" name="photo" type="file" accept="image/*" autocomplete="off" aria-describedby="photo-hint photo-error">
+            <span id="photo-filename" class="file-name">No file chosen</span>
+          </div>
+          <p class="error-message" id="photo-error" hidden><span class="error-icon" aria-hidden="true">!</span><span class="error-text"></span></p>
+        </div>
+
+        <fieldset class="form-section contact-section" aria-describedby="contact-hint">
+          <legend>How can we reach you? <span class="optional-label">Optional</span></legend>
+          <p class="field-hint" id="contact-hint">Leave these blank to keep your report anonymous. You can provide either or both.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="contact-email">Email address</label>
+              <input id="contact-email" name="contactEmail" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="contact-hint email-error">
+              <p class="error-message" id="email-error" hidden><span class="error-icon" aria-hidden="true">!</span><span class="error-text"></span></p>
+            </div>
+            <div class="field">
+              <label for="contact-phone">Phone number</label>
+              <input id="contact-phone" name="contactPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. +234 800 000 0000" aria-describedby="contact-hint phone-error">
+              <p class="error-message" id="phone-error" hidden><span class="error-icon" aria-hidden="true">!</span><span class="error-text"></span></p>
+            </div>
+          </div>
+          <label class="anonymous-control" for="anonymous">
+            <input id="anonymous" name="anonymous" type="checkbox" autocomplete="off">
+            <span class="custom-checkbox" aria-hidden="true"></span>
+            <span><strong>Submit anonymously</strong><small>Do not include my contact details with this report.</small></span>
+          </label>
+        </fieldset>
+
+        <div class="form-actions">
+          <p class="submission-note"><span aria-hidden="true">🔒</span> Your report is handled with care.</p>
+          <button class="submit-button" type="submit">Submit report <span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+    </section>
+    </main>
+    <footer class="site-footer"><span>Campus Care</span><span class="footer-motto">Safer together, every day.</span><span>For emergencies, contact campus security directly.</span></footer>
+  </div>
+</body>
+</html>

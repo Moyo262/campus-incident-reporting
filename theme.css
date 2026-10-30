@@ -1,0 +1,22 @@
+/* Shared accessible colour tokens for both layout stylesheets. */
+:root {
+  color-scheme: light;
+  --theme-primary: #102A43;
+  --theme-primary-hover: #0B2238;
+  --theme-primary-soft: #EFF6FB;
+  --theme-background: #FFFFFF;
+  --theme-surface: #FFFFFF;
+  --theme-surface-muted: #F5F7FA;
+  --theme-on-primary: #FFFFFF;
+  --theme-text: #102A43;
+  --theme-muted: #475569;
+  --theme-border: #64748B;
+  --theme-border-soft: #CBD5E1;
+  --theme-gold: #8A6412;
+  --theme-success: #176B45;
+  --theme-success-text: #14532D;
+  --theme-success-background: #ECFDF3;
+  --theme-error: #B42318;
+  --theme-error-background: #FFF1F0;
+  --theme-focus: #005FCC;
+}
